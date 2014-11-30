@@ -1,0 +1,13 @@
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+        ssid="IPHONE_UND_CO"
+	eap=PEAP
+	phase2="auth=MSCHAPV2"
+        key_mgmt=WPA-EAP
+       identity="freinc"
+#               anonymous_identity="anonymous@example.com"
+               password="greenmouse"
+#               ca_cert="/etc/cert/ca.pem"
+}
+

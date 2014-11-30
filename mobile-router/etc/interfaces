@@ -1,0 +1,20 @@
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+auto wlan0
+iface wlan0 inet static
+	address 192.168.0.1
+	netmask 255.255.255.0
+
+auto wwan0
+iface wwan0 inet manual
+	post-up /sbin/ifup ppp0
+	pre-down /sbin/ifdown ppp0
+
+#auto ppp0
+iface ppp0 inet wvdial
+	provider vodafone
+
+up iptables-restore < /etc/iptables.ipv4.nat

@@ -1,0 +1,12 @@
+#!/bin/bash
+NAME=$(dirname $0)
+echo $NAME:
+cd $NAME
+../inc.sh
+echo Deactivate $NAME
+
+update-rc.d hostapd disable
+update-rc.d dnsmasq disable
+cp default/ifplugd.orig /etc/default/ifplugd
+rm /etc/sysctl.d/ip_forward.conf 
+
